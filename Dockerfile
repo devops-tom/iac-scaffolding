@@ -4,8 +4,7 @@ ENV TERRAFORM_VERSION 1.1.6
 ENV ANSIBLE_VERSION 4.8.0-r0
 RUN apk --update --no-cache add curl python3 ansible=${ANSIBLE_VERSION} git git-lfs less openssh
 
-
-# Download and Install Terraform
+# Download and Install Terragitform
 RUN cd /usr/local/bin && \
     curl https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip -o terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
     unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
@@ -23,5 +22,7 @@ ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \ 
   && unzip awscliv2.zip \
   && ./aws/install
+
+RUN git version
 
 CMD ["/bin/sh"]
