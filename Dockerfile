@@ -25,4 +25,3 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
   && sudo ./aws/install
 
 CMD ["/bin/sh"]
-CMD ["/bin/sh"]
