@@ -3,7 +3,7 @@ FROM alpine:3.14
 ENV TERRAFORM_VERSION 1.1.6
 ENV ANSIBLE_VERSION 2.10.7-r0
 
-RUN apk --update --no-cache add curl python3 ansible=${ANSIBLE_VERSION}
+RUN apk --update --no-cache add curl python3 ansible=${ANSIBLE_VERSION} git
 
 # Download and Install Terraform
 RUN cd /usr/local/bin && \
