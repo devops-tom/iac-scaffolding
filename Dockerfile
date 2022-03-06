@@ -22,6 +22,6 @@ ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin
 
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \ 
   && unzip awscliv2.zip \
-  && sudo ./aws/install
+  && ./aws/install
 
 CMD ["/bin/sh"]
