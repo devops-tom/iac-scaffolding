@@ -28,9 +28,4 @@ RUN apk add git git-lfs less openssh
 RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 RUN install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 RUN kubectl version --client
-
-RUN curl https://github.com/fluxcd/flux2/releases/download/v0.28.5/flux_0.28.5_linux_amd64.tar.gz --output /tmp/flux_0.28.5_linux_amd64.tar.gz
-RUN tar -xf /tmp/flux_0.28.5_linux_amd64.tar.gz
-RUN ls
-RUN /usr/local/bin/flux version
 CMD ["/bin/sh"]
