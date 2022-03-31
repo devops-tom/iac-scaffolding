@@ -28,6 +28,5 @@ RUN apk add git git-lfs less openssh
 RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 RUN install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 RUN kubectl version --client
-RUN curl -s https://fluxcd.io/install.sh --output install.sh
-RUN install.sh
+RUN curl -s https://fluxcd.io/install.sh | /bin/sh
 CMD ["/bin/sh"]
