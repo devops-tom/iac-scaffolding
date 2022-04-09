@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 ENV TERRAFORM_VERSION 1.1.6
 ENV ANSIBLE_VERSION 4.8.0-r0
 RUN apt-get update
-RUN apt-get install curl python3 ansible git git-lfs less
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install curl python3 ansible git git-lfs less
 
 # Download and Install Terragitform
 RUN cd /usr/local/bin && \
