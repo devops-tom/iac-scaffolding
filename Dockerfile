@@ -2,7 +2,6 @@ FROM ubuntu:22.04
 
 ENV TERRAFORM_VERSION 1.1.6
 ENV ANSIBLE_VERSION 4.8.0-r0
-RUN apk --update --no-cache add curl python3 ansible=${ANSIBLE_VERSION} git git-lfs less openssh
 RUN apt-get update
 RUN apt-get install curl python3 ansible git git-lfs less
 
