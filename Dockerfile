@@ -1,8 +1,10 @@
-FROM alpine:3.15
+FROM ubuntu:22.04
 
 ENV TERRAFORM_VERSION 1.1.6
 ENV ANSIBLE_VERSION 4.8.0-r0
-RUN apk --update --no-cache add curl python3 ansible=${ANSIBLE_VERSION}
+RUN apk --update --no-cache add curl python3 ansible=${ANSIBLE_VERSION} git git-lfs less openssh
+RUN apt-get update
+RUN apt-get install curl python3 ansible git git-lfs less
 
 # Download and Install Terragitform
 RUN cd /usr/local/bin && \
@@ -22,8 +24,6 @@ ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \ 
   && unzip awscliv2.zip \
   && ./aws/install
-
-RUN apk add git git-lfs less openssh
 
 RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 RUN install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
